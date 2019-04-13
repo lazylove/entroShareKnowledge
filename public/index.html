@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="t2.css">
+    <title>TEST</title>
+   
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.8.5/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.8.5/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.8.5/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.8.5/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.8.5/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    
+
+    <!-- <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style> -->
+
+  </head>
+  <body>
+    <!-- <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script> -->
+    <!-- const firebase = require("firebase/app")
+    require("firebase/firestore") -->
+    
+    
+    <h1>Hello</h1>
+    <script>
+        // Initialize Firebase
+      
+  
+        var config = {
+          apiKey: "AIzaSyAZVpvZwtGIdMu66CWb8ITtVe_vl8w7iXg",
+          authDomain: "entrosk-47bad.firebaseapp.com",
+          databaseURL: "https://entrosk-47bad.firebaseio.com",
+          projectId: "entrosk-47bad",
+          storageBucket: "entrosk-47bad.appspot.com",
+          messagingSenderId: "151238242204"
+        };
+        firebase.initializeApp(config);
+      
+  
+        // const firebase = require("firebase/app")
+        // require("firebase/firestore")
+  
+        const firestore = firebase.firestore()
+         
+        // firestore.collection("store").add({ 
+        // item: "Nendoroid",
+        // name: "Hatsune Miku",
+        // id: 33,
+        // available: true
+        //   }).then(function(doc){ 
+        //       console.info(doc.id) 
+        //   }).catch(function(error){ 
+        //       console.error(error) 
+        //   });
+
+        //   firestore.collection("store").doc("Hatsune Miku").set({ 
+        //     item: "Nendoroid",
+        //     id: 13,
+        //     available: true
+        //      });
+        // firestore.collection("store").get().then(function(docs){
+        //         console.log(docs.data());
+
+        //         console.log(docs.data().item);
+        //         var abc = docs.data().item;
+        //         // var originalContents = document.body.innerHTML;
+        //         document.getElementById("p1").innerHTML = abc;
+        //         // document.body.innerHTML = abc;
+        //     })
+
+            firestore.collection("store").where("available","==",true).get().then(function(snapshot){
+              
+    snapshot.forEach(function(docs){
+        console.log(docs.data());
+        var abc = docs.data().item;
+        var xyz = docs.data().name;
+        var id = docs.data().id;
+       
+        // var xyz = docs.data().name;
+        // document.getElementById("p1").innerHTML = abc;
+      
+        // for (var x = 1; x < 11; x++) {
+        // document.getElementById("p1" + x);
+        // }
+
+                          for(var i=0;i<1;i++){
+
+                            var oImg = document.createElement("img");
+                                oImg.setAttribute('src', xyz);
+                                oImg.setAttribute('id',id);
+                                oImg.setAttribute('height', '450px');
+                                oImg.setAttribute('width', '500px');
+
+                          var currentDiv = document.getElementById("p1"); 
+                          var newDiv = document.createElement("p"); 
+                          var newContent = document.createTextNode(abc); 
+                          newDiv.appendChild(newContent); 
+                          document.body.insertBefore(newDiv, currentDiv); 
+                        
+                          var new2 = oImg;
+                          // var newcon2 = document.createTextNode("https://neko-miku.com/images/content/0/0c7f10ce149ba7063d50a37736bc51be.jpg");
+                          // new2.appendChild(newcon2);
+                          document.body.appendChild(new2)
+                          // document.body.insertBefore(new2,currentDiv);
+                          console.log(i);
+                      }
+
+            })
+        });
+          console.log("AAA");
+  
+          
+           
+      </script>
+      <!-- <script src="app.js"></script> -->
+      <!-- var name_val = docs.item;
+      document.getElementById("name").innerHTML =name_val; -->
+
+      <p id="p1"></p>
+     
+      <!-- <script>
+      document.getElementById("p1").innerHTML = "New text!";
+      </script> -->
+
+  </body>
+</html>
