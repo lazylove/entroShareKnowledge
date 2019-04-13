@@ -74,7 +74,7 @@
     <script>
         // Initialize Firebase
       
-  
+        //config DB
         var config = {
           apiKey: "AIzaSyAZVpvZwtGIdMu66CWb8ITtVe_vl8w7iXg",
           authDomain: "entrosk-47bad.firebaseapp.com",
@@ -84,78 +84,24 @@
           messagingSenderId: "151238242204"
         };
         firebase.initializeApp(config);
-      
-  
-        // const firebase = require("firebase/app")
-        // require("firebase/firestore")
-  
-        const firestore = firebase.firestore()
-         
-        // firestore.collection("store").add({ 
-        // item: "Nendoroid",
-        // name: "Hatsune Miku",
-        // id: 33,
-        // available: true
-        //   }).then(function(doc){ 
-        //       console.info(doc.id) 
-        //   }).catch(function(error){ 
-        //       console.error(error) 
-        //   });
+        
+        const db = firebase.firestore()
 
-        //   firestore.collection("store").doc("Hatsune Miku").set({ 
-        //     item: "Nendoroid",
-        //     id: 13,
-        //     available: true
-        //      });
-        // firestore.collection("store").get().then(function(docs){
-        //         console.log(docs.data());
+        //Test Get database name SKentro by available=ture
+        db.collection("SKentro").where("available", "==", true)
+            .get()
+            .then(function(querySnapshot) {
 
-        //         console.log(docs.data().item);
-        //         var abc = docs.data().item;
-        //         // var originalContents = document.body.innerHTML;
-        //         document.getElementById("p1").innerHTML = abc;
-        //         // document.body.innerHTML = abc;
-        //     })
+              querySnapshot.forEach(function(doc) {
+                  // doc.data() is never undefined for query doc snapshots
+                  console.log(doc.id, " => ", doc.data());
+              });
+          })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+            });
 
-            firestore.collection("store").where("available","==",true).get().then(function(snapshot){
-              
-    snapshot.forEach(function(docs){
-        console.log(docs.data());
-        var abc = docs.data().item;
-        var xyz = docs.data().name;
-        var id = docs.data().id;
-       
-        // var xyz = docs.data().name;
-        // document.getElementById("p1").innerHTML = abc;
-      
-        // for (var x = 1; x < 11; x++) {
-        // document.getElementById("p1" + x);
-        // }
-
-                          for(var i=0;i<1;i++){
-
-                            var oImg = document.createElement("img");
-                                oImg.setAttribute('src', xyz);
-                                oImg.setAttribute('id',id);
-                                oImg.setAttribute('height', '450px');
-                                oImg.setAttribute('width', '500px');
-
-                          var currentDiv = document.getElementById("p1"); 
-                          var newDiv = document.createElement("p"); 
-                          var newContent = document.createTextNode(abc); 
-                          newDiv.appendChild(newContent); 
-                          document.body.insertBefore(newDiv, currentDiv); 
-                        
-                          var new2 = oImg;
-                          // var newcon2 = document.createTextNode("https://neko-miku.com/images/content/0/0c7f10ce149ba7063d50a37736bc51be.jpg");
-                          // new2.appendChild(newcon2);
-                          document.body.appendChild(new2)
-                          // document.body.insertBefore(new2,currentDiv);
-                          console.log(i);
-                      }
-
-            })
-        });
+            
           console.log("AAA");
   
           
@@ -165,7 +111,7 @@
       <!-- var name_val = docs.item;
       document.getElementById("name").innerHTML =name_val; -->
 
-      <p id="p1"></p>
+      
      
       <!-- <script>
       document.getElementById("p1").innerHTML = "New text!";
