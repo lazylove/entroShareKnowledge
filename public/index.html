@@ -3,103 +3,178 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <title>Entronica Shared Knowledge</title>
    
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/5.8.5/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/5.8.5/firebase-auth.js"></script>
-    <script defer src="/__/firebase/5.8.5/firebase-database.js"></script>
-    <script defer src="/__/firebase/5.8.5/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/5.8.5/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+   
 
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    
 
   </head>
   <body>
     
     
     <h1 class="aa">Entronica Shared Knowledge</h1>
-    <script>
-        // Initialize Firebase
-      
-        //config DB
-        var config = {
-          apiKey: "AIzaSyAZVpvZwtGIdMu66CWb8ITtVe_vl8w7iXg",
-          authDomain: "entrosk-47bad.firebaseapp.com",
-          databaseURL: "https://entrosk-47bad.firebaseio.com",
-          projectId: "entrosk-47bad",
-          storageBucket: "entrosk-47bad.appspot.com",
-          messagingSenderId: "151238242204"
-        };
-        firebase.initializeApp(config);
-        
-        const db = firebase.firestore()
-
-        //Test Get database name SKentro by available=ture
-        db.collection("SKentro").where("available", "==", true)
-            .get()
-            .then(function(querySnapshot) {
-
-              querySnapshot.forEach(function(doc) {
-                  // doc.data() is never undefined for query doc snapshots
-                  console.log(doc.id, " => ", doc.data());
-              });
-          })
-            .catch(function(error) {
-                console.log("Error getting documents: ", error);
-            });
-
-
-          console.log("AAA");
-  
-          
-           
-      </script>
+   
       <!-- <script src="app.js"></script> -->
       <!-- var name_val = docs.item;
       document.getElementById("name").innerHTML =name_val; -->
 
-      <section class="container">
-        <div class="container1">
-          <div class="">
-            <img class="imgC" src="../img/addy.jpg" width="150" height="150">
-          </div>
-          <div class="title">
-            <span>“</span><span id="article">Bitcoin</span><span>”</span>
-          </div>
-          <div class="person">
-            <div></div>
-            <div>
-              <span class="namePerson">Addy</span>
-            </div>
-            <div class="letf">
-              <span class="timeStemp">12/04/2019 12:00</span>
-            </div>
-          </div>
-          <div class="blockYoutube">
-              <div></div>
-            <div>
-              <img src="../img/Youtube-icon.png" width="40" height="40">
-            </div>
-            <div class="letf">
-              <span class="youtubeText">www.youtube.com</span>
-            </div>
-          </div>
-        </div>
-    
-    
-    
-      </section>
+     
+<section class="container" id="mainContainer">
+  <!-- <div class="container1">
+    <div class="">
+      <img class="imgC" src="../img/addy.jpg" width="150" height="150">
+    </div>
+    <div class="title">
+      <span>“</span><span id="article">Bitcoin</span><span>”</span>
+    </div>
+    <div class="person">
+      <div></div>
+      <div>
+        <span class="namePerson">Addy</span>
+      </div>
+      <div class="letf">
+        <span class="timeStemp">12/04/2019 12:00</span>
+      </div>
+    </div>
+    <div class="blockYoutube">
+        <div></div>
+      <div>
+        <img src="../img/Youtube-icon.png" width="40" height="40">
+      </div>
+      <div class="letf">
+        <a href="https://www.google.co.th" class="youtubeText">www.google.co.th</a>
+      </div>
+    </div>
+  </div> -->
+</section>
      
       <!-- <script>
       document.getElementById("p1").innerHTML = "New text!";
       </script> -->
 
   </body>
+
+
+  <script>
+    // Initialize Firebase
+  
+    //config DB
+    var config = {
+      apiKey: "AIzaSyAZVpvZwtGIdMu66CWb8ITtVe_vl8w7iXg",
+      authDomain: "entrosk-47bad.firebaseapp.com",
+      databaseURL: "https://entrosk-47bad.firebaseio.com",
+      projectId: "entrosk-47bad",
+      storageBucket: "entrosk-47bad.appspot.com",
+      messagingSenderId: "151238242204"
+    };
+    firebase.initializeApp(config);
+    
+    const db = firebase.firestore()
+
+    //Test Get database name SKentro by available=ture
+    db.collection("SKentro").where("available", "==", true)
+        .get()
+        .then(function(querySnapshot) {
+
+          querySnapshot.forEach(function(doc) {
+              // doc.data() is never undefined for query doc snapshots
+              console.log(doc.id, " => ", doc.data());
+          });
+      })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+
+        //function appendAfter
+        Element.prototype.appendAfter = function(element) {
+           element.parentNode.insertBefore(this, element.nextSibling);
+        }
+
+        const mainContainer = document.getElementById('mainContainer');
+        const divClassContainer1 = document.createElement('div');
+        divClassContainer1.className = 'container1';
+        divClassContainer1.id = 'container1';
+        
+
+        const divImg = document.createElement('div');
+        divImg.id = 'divImg';
+
+        const imgAll = document.createElement('img');
+        imgAll.id = 'imgAll';
+        imgAll.className = 'imgC';
+        imgAll.src = 'images/addy.jpg';
+        imgAll.width = '150';
+        imgAll.height = '150';
+
+        const divTitle = document.createElement('div');
+        divTitle.id = 'divTitle';
+        divTitle.className = 'title';
+
+        const spanD = document.createElement('span');
+        spanD.id = 'spanDouble';
+        spanD.textContent = '"';
+        
+
+        const spanD1 = document.createElement('span');
+        spanD1.id = 'spanDouble1';
+        spanD1.innerText = '"';
+
+        const titleArticle = document.createElement('span');
+        titleArticle.id = 'titleArticle';
+        titleArticle.innerText = 'Test';
+
+        const person = document.createElement('div');
+        person.className = 'person';
+        person.id = 'person';
+
+        const personDiv1 = document.createElement('div');
+        personDiv1.id = 'personDiv1';
+
+        const personDiv2 = document.createElement('div');
+        personDiv2.id = 'personDiv2';
+
+        const personDiv3 = document.createElement('div');
+        personDiv3.id = 'personDiv3';
+
+        const spanNamePerson = document.createElement('span');
+        spanNamePerson.id = 'NamePerson';
+        spanNamePerson.className = 'namePerson';
+        spanNamePerson.innerText = 'ADD';
+
+        const spanTimeStemp = document.createElement('span');
+        spanTimeStemp.id = 'TimeStemp';
+        spanTimeStemp.className = 'timeStemp';
+        spanTimeStemp.innerText = '12/04/2019 12:00';
+
+        mainContainer.appendChild(divClassContainer1);
+        divClassContainer1.appendChild(divImg);
+        divImg.appendChild(imgAll);
+        divClassContainer1.appendChild(divTitle);
+        divTitle.appendChild(spanD);
+        divTitle.appendChild(titleArticle);
+        divTitle.appendChild(spanD1);
+        divClassContainer1.appendChild(person);
+        person.appendChild(personDiv1);
+        person.appendChild(personDiv2);
+        person.appendChild(personDiv3);
+        personDiv2.appendChild(spanNamePerson);
+        personDiv3.appendChild(spanTimeStemp);
+
+
+        // <div class="person">
+        //     <div></div>
+        //     <div>
+        //       <span class="namePerson">Addy</span>
+        //     </div>
+        //     <div class="letf">
+        //       <span class="timeStemp">12/04/2019 12:00</span>
+        //     </div>
+        //   </div>
+       
+  </script>
 </html>
