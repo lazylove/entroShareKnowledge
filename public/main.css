@@ -7,9 +7,14 @@
     text-align: center;
 }
 
+.footer{
+    margin: 20px 10px 20px 10px;
+    text-align: center;
+}
+
 .container {
     display: grid;
-    grid-template-columns: repeat( auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat( auto-fill, minmax(350px, 1fr));
     /* grid-template-columns: repeat( 4 , 220px); */
     /* grid-template-columns: 400px 400px 400px; */
     /* grid-template-rows: auto; */
@@ -23,20 +28,20 @@
 .container1 {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 170px 60px 40px 40px;
+    grid-template-rows: 170px 60px 40px 50px;
     margin: 0px 10px;
     /* grid-gap: 1px; */
 }
 
 .person {
     display: grid;
-    grid-template-columns: 20% 20% 60%;
+    grid-template-columns: 3% 27% 70%;
     /* margin: 0px 10px; */
     /* grid-gap: 1px; */
 }
 .blockYoutube {
     display: grid;
-    grid-template-columns: 20% 20% 60%;
+    grid-template-columns: 3% 27% 70%;
     /* margin: 0px 10px; */
     /* grid-gap: 1px; */
 }
@@ -53,11 +58,12 @@
 
     text-align : left;
     /* margin: auto; */
+    margin: 3px 0 0 5px;
 
 }
 
 .title{
-    font-size: 40px ;
+    font-size: 22px ;
     font-weight: bold;
     font-style: italic;
     margin: auto;
@@ -67,20 +73,66 @@
     vertical-align: middle;
 } */
 
+
 .youtubeText{
     /* align-content: center; */
     display: table;
-    margin: 5px 0 0 0;
+    margin: 8px 0 0 9px;
+    font-family: Comic Sans MS;
+    /* align-items: center; */
 }
 
 .timeStemp{
     /* align-content: center; */
     display: table;
-    margin: 5px 0 0 15px;
+    margin: 9px 0 0 10px;
+    font-family: Comic Sans MS;
 }
 
 .namePerson{
     /* align-content: center; */
     display: table;
-    margin: 5px 0 0 12px;
+    margin: 9px 0 0 32px;
+    font-family: Comic Sans MS;
 }
+
+.titleArticle{
+    font-family: Comic Sans MS;
+}
+
+.spandDiv{
+    font-family: Comic Sans MS;
+}
+
+.buttonGreen {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .buttonRed {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .imgScoll{
+    max-width:100%; 
+    border:none;
+  }

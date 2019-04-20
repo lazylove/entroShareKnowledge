@@ -31,13 +31,10 @@
 </section>
 
 <section class="footer" id="footer">
-  <div class="row">
+  <div >
     <a href="index.html" class="buttonGreen">Active</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="inActive.html" class="buttonRed">Inactive</a>
   </div>
-  
-  
-    
 </section>
       <!-- <script>
       document.getElementById("p1").innerHTML = "New text!";
@@ -74,7 +71,7 @@
     //               })
 
     //Test Get database name SKentro by available=ture
-    SKentro.where("available", "==", true)
+    SKentro.where("available", "==", false)
         .orderBy("dateTime")
         .get()
         .then(function(querySnapshot) {
