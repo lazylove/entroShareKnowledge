@@ -18,7 +18,7 @@
     /* grid-template-columns: repeat( 4 , 220px); */
     /* grid-template-columns: 400px 400px 400px; */
     /* grid-template-rows: auto; */
-    grid-gap: 20px;
+    grid-gap: 30px;
     justify-content: center;
     text-align: center;
     
@@ -28,10 +28,12 @@
 .container1 {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 170px 60px 40px 50px;
+    grid-template-rows: 170px 70px 40px 50px;
     margin: 0px 10px;
     /* grid-gap: 1px; */
 }
+
+
 
 .person {
     display: grid;
@@ -44,6 +46,12 @@
     grid-template-columns: 3% 27% 70%;
     /* margin: 0px 10px; */
     /* grid-gap: 1px; */
+}
+
+.divTitle {
+    display: grid;
+    grid-template-columns: 100%;
+   
 }
 
 .article {
@@ -63,10 +71,11 @@
 }
 
 .title{
-    font-size: 22px ;
+    font-size: 19px ;
     font-weight: bold;
     font-style: italic;
-    margin: auto;
+    /* margin: auto; */
+    margin: 15px 0 0 0;
 }
 
 /* span {

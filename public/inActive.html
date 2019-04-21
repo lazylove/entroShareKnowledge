@@ -59,16 +59,6 @@
     
     const db = firebase.firestore()
     var SKentro = db.collection("SKentro");
-    
-
-    // db.collection("SKentro").add({ 
-    //     article: "นอนเลย",
-    //     name: "Friend",
-    //     dateTime: "",
-    //     available: false,
-    //     image: "",
-    //     youtubeLink: ""
-    //               })
 
     //Test Get database name SKentro by available=ture
     SKentro.where("available", "==", false)
@@ -83,9 +73,56 @@
               var dbArticle = doc.data().article;
               var dbImg =  doc.data().image;
               var dbTime = doc.data().dateTime.toDate();
-              dbTime = new Date(dbTime).toUTCString();
-              dbTime = dbTime.split(' ').slice(0, 5).join(' ');
-              var dbTime1 = doc.data().dateTime.toDate();
+              var week = doc.data().week;
+              var day = doc.data().day;
+              var time = doc.data().time;
+              var daySplitDay = day.split("/")[0];
+              var daySplitMonth = day.split("/")[1];
+              switch(daySplitMonth){
+                case "01":
+                  var month = "Jan";
+                break;
+                case "02":
+                  var month = "Feb";
+                break;
+                case "03":
+                  var month = "Mar";
+                break;
+                case "04":
+                  var month = "Apr";
+                break;
+                case "05":
+                  var month = "May";
+                break;
+                case "06":
+                  var month = "Jun";
+                break;
+                case "07":
+                  var month = "Jul";
+                break;
+                case "08":
+                  var month = "Aug";
+                break;
+                case "09":
+                  var month = "Sep";
+                break;
+                case "10":
+                  var month = "Oct";
+                break;
+                case "11":
+                  var month = "Nov";
+                break;
+                case "12":
+                  var month = "Dec";
+                break;
+                default:
+                  var month = "-";
+                   
+              }
+              var daySplitYear = day.split("/")[2];
+
+              var dateFinal = week+" "+daySplitDay+"/"+month+"/"+daySplitYear+" "+"("+time+")";
+              console.log(dateFinal);
               var dbName = doc.data().name;
               var dbYoutube = doc.data().youtubeLink;
 
@@ -108,7 +145,11 @@
 
               const divTitle = document.createElement('div');
                     divTitle.id = 'divTitle';
-                    divTitle.className = 'title';
+                    divTitle.className = 'divTitle';
+
+              const divTitle1 = document.createElement('div');
+                    divTitle1.id = 'divTitle1';
+                    divTitle1.className = 'title';
 
               const spanD = document.createElement('span');
                     spanD.id = 'spanDouble';
@@ -147,7 +188,7 @@
               const spanTimeStemp = document.createElement('span');
               spanTimeStemp.id = 'TimeStemp';
               spanTimeStemp.className = 'timeStemp';
-              spanTimeStemp.innerText = dbTime;
+              spanTimeStemp.innerText = dateFinal;
 
               const blockYoutubeDiv = document.createElement('div');
               blockYoutubeDiv.id = 'blockYoutubeDiv';
@@ -190,9 +231,10 @@
               divImg.appendChild(imgAll);
 
               /* Do Article*/
-              divTitle.appendChild(spanD);
-              divTitle.appendChild(titleArticle);
-              divTitle.appendChild(spanD1);
+              divTitle.appendChild(divTitle1);
+              divTitle1.appendChild(spanD);
+              divTitle1.appendChild(titleArticle);
+              divTitle1.appendChild(spanD1);
               
               /* Do Name and time*/
               person.appendChild(personDiv1);
