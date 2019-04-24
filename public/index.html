@@ -78,11 +78,13 @@
         .orderBy("dateTime")
         .get()
         .then(function(querySnapshot) {
+          
+          console.log("P0WERED BY Group THE Fool")
 
           querySnapshot.forEach(function(doc) {
               // doc.data() is never undefined for query doc snapshots
               // console.log(doc.id, " => ", doc.data());
-              console.log("P0WERED BY THE Fool")
+             
           
               var dbArticle = doc.data().article;
               var dbImg =  doc.data().image;
