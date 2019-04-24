@@ -68,7 +68,8 @@
 
           querySnapshot.forEach(function(doc) {
               // doc.data() is never undefined for query doc snapshots
-              console.log(doc.id, " => ", doc.data());
+              // console.log(doc.id, " => ", doc.data());
+              console.log("P0WERED BY THE Fool")
           
               var dbArticle = doc.data().article;
               var dbImg =  doc.data().image;
@@ -122,7 +123,7 @@
               var daySplitYear = day.split("/")[2];
 
               var dateFinal = week+" "+daySplitDay+"/"+month+"/"+daySplitYear+" "+"("+time+")";
-              console.log(dateFinal);
+              // console.log(dateFinal);
               var dbName = doc.data().name;
               var dbYoutube = doc.data().youtubeLink;
 
@@ -251,17 +252,7 @@
               blockYoutubeDiv3.appendChild(linkYoutube);
 
           });
-          
-          // const mainContainer = document.getElementById('mainContainer');
-          // const divClassContainer2 = document.createElement('div');
-          //       divClassContainer2.className = 'container2';
-          //       divClassContainer2.id = 'container2';
-
-          // const button1     = document.createElement('div');
-          //       button1.id  = 'button1';
-
-          //       mainContainer.appendChild(divClassContainer2);
-          //       divClassContainer2.appendChild(button1);
+        
       })
         .catch(function(error) {
             console.log("Error getting documents: ", error);
